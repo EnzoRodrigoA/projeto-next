@@ -1,0 +1,24 @@
+{
+  "name": "projeto-next",
+  "version": "1.0.0",
+  "description": "implementações das aulas do curso.dev",
+  "main": "index.js",
+  "scripts": {
+    "dev": "next dev"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/EnzoRodrigoA/projeto-next.git"
+  },
+  "author": "",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/EnzoRodrigoA/projeto-next/issues"
+  },
+  "homepage": "https://github.com/EnzoRodrigoA/projeto-next#readme",
+  "dependencies": {
+    "next": "^13.1.6",
+    "react": "^18.2.0",
+    "react-dom": "^18.2.0"
+  }
+}
