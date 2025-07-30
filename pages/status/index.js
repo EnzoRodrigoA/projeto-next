@@ -40,21 +40,20 @@ function DatabaseStatus() {
   });
 
   let databaseStatusInformation = "Carregando...";
-  const databaseDependencies = data.dependencies.database;
 
   if (!isLoading && data) {
     databaseStatusInformation = (
       <>
         <div>
-          <strong>Versão:</strong> {databaseDependencies.version}
+          <strong>Versão:</strong> {data.dependencies.database.version}
         </div>
         <div>
           <strong>Conexões Abertas:</strong>{" "}
-          {databaseDependencies.opened_connections}
+          {data.dependencies.database.opened_connections}
         </div>
         <div>
           <strong>Conexões Máximas:</strong>{" "}
-          {databaseDependencies.max_connections}
+          {data.dependencies.database.max_connections}
         </div>
       </>
     );
