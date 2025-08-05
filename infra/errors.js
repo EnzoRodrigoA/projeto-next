@@ -1,10 +1,10 @@
 export class InternalServerError extends Error {
   constructor({ cause, statusCode }) {
-    super("Um erro interno não esperado aconteceu", {
+    super("Um erro interno não esperado aconteceu.", {
       cause,
     });
     this.name = "InternalServerError";
-    this.action = "Entre em contato com o suporte";
+    this.action = "Entre em contato com o suporte.";
     this.statusCode = statusCode || 500;
   }
 
@@ -44,7 +44,7 @@ export class ValidationError extends Error {
       cause,
     });
     this.name = "ValidationError";
-    this.action = action || "Ajuste os dados enviados e tente novamente";
+    this.action = action || "Ajuste os dados enviados e tente novamente.";
     this.statusCode = 400;
   }
 
@@ -60,7 +60,7 @@ export class ValidationError extends Error {
 
 export class NotFoundError extends Error {
   constructor({ cause, message, action }) {
-    super(message || "Não foi possível encontrar este recurso no sistema", {
+    super(message || "Não foi possível encontrar este recurso no sistema.", {
       cause,
     });
     this.name = "NotFoundError";
@@ -79,11 +79,31 @@ export class NotFoundError extends Error {
   }
 }
 
+export class UnauthorizedError extends Error {
+  constructor({ cause, message, action }) {
+    super(message || "Usuário não autenticado.", {
+      cause,
+    });
+    this.name = "UnauthorizedError";
+    this.action = action || "Faça novamente o login para continuar.";
+    this.statusCode = 401;
+  }
+
+  toJSON() {
+    return {
+      name: this.name,
+      message: this.message,
+      action: this.action,
+      status_code: this.statusCode,
+    };
+  }
+}
+
 export class MethodNotAllowedError extends Error {
   constructor() {
-    super("Método não permitido para este endpoint");
+    super("Método não permitido para este endpoint.");
     this.name = "MethodNotAllowed";
-    this.action = "Verifique se o método HTTP é válido para este endpoint";
+    this.action = "Verifique se o método HTTP é válido para este endpoint.";
     this.statusCode = 405;
   }
 
